@@ -18,35 +18,35 @@ public class Membercontroller {
 	public String move() {
 
 		logger.info("member_add 진입");
-		return "member/member_add";
+		return "member:member/member_add.tiles";
 	}
 	
 	@RequestMapping("/list")
 	public String list() {
 
 		logger.info("member_list 진입");
-		return "member/member_list";
+		return "member:member/member_list.tiles";
 	}
 	
 	@RequestMapping("/detail")
 	public String detail() {
 
 		logger.info("member_detail 진입");
-		return "member/member_detail";
+		return "member:member/member_detail.tiles";
 	}
 	
 	@RequestMapping("/update")
 	public String update() {
 
 		logger.info("member_update 진입");
-		return "member/member_update";
+		return "member:member/member_update.tiles";
 	}
 	
 	@RequestMapping("/delete")
 	public String delete() {
 
 		logger.info("member_delete 진입");
-		return "member/member_delete";
+		return "member:member/member_delete.tiles";
 	}
 
 }

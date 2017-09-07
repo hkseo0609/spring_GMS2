@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-<title>학생관리</title>	
+	<meta charset="UTF-8" />
+	<title>Document</title>
 </head>
 <body>
-<div id="wrapper">
-<header>
 
-</header>
+</body>
+</body>
+</html>

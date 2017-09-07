@@ -17,35 +17,35 @@ public class GradeController {
 	public String move() {
 
 		logger.info("grade_add 진입");
-		return "grade/grade_add";
+		return "grade:grade/grade_add.tiles";
 	}
 	
 	@RequestMapping("/list")
 	public String list() {
 
 		logger.info("grade_list 진입");
-		return "grade/grade_list";
+		return "grade:grade/grade_list.tiles";
 	}
 	
 	@RequestMapping("/detail")
 	public String detail() {
 
 		logger.info("grade_detail 진입");
-		return "grade/grade_detail";
+		return "grade:grade/grade_detail.tiles";
 	}
 	
 	@RequestMapping("/update")
 	public String update() {
 
 		logger.info("grade_update 진입");
-		return "grade/grade_update";
+		return "grade:grade/grade_update.tiles";
 	}
 	
 	@RequestMapping("/delete")
 	public String delete() {
 
 		logger.info("grade_delete 진입");
-		return "grade/grade_delete";
+		return "grade:grade/grade_delete.tiles";
 	}
 
 }

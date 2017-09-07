@@ -19,7 +19,7 @@ public class AuthController {
 	@RequestMapping("/login")
 	public String login() {
 		logger.info("login 진입");
-		return "common/main";
+		return "auth:common/main.tiles";
 	}
 	
 	@RequestMapping("/logout")

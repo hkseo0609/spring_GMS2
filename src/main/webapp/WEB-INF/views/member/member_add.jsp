@@ -1,4 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>학생관리</title>
+</head>
+<body>
+<div id="wrapper">
 	<header>
 	<h1 class="gms-h1">MEMBER ADD</h1>
 	</header>
@@ -48,8 +56,7 @@
 			<input type="hidden" name="page" value="main" />
 			</fieldset>
 		</form>
+</div>
+</body>
+</html>
 
-<jsp:include page="../common/footer.jsp" />
-<script>
-
-</script>

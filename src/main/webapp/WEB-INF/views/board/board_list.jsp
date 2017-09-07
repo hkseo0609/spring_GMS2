@@ -1,4 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>게시판관리</title>
+</head>
+<body>
+<div id="wrapper">
 	<header>
 	<h1 class="gms-h1">B O A R D</h1><br />
 	</header>
@@ -60,3 +68,8 @@
 			
 		</tr>
 	</table>
+	
+</div>
+</body>
+</html>
+	
