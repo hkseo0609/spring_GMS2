@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.gms.web.common.AuthController;
+import com.gms.web.auth.AuthController;
 
 @Controller
 @RequestMapping("/board")

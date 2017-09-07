@@ -19,5 +19,5 @@
 <body>
 <div id="wrapper">
 <header>
-<%--<jsp:include page="navbar.jsp" /> --%>
+<jsp:include page="navbar.jsp" />
 </header>

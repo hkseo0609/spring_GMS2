@@ -1,6 +1,5 @@
-package com.gms.web.common;
+package com.gms.web.auth;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
