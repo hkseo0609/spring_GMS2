@@ -2,4 +2,5 @@
 <img src="resources/img/loading.gif" alt="" />
 <script>
 app.path.init("<%=application.getContextPath() %>");
+
 </script>
