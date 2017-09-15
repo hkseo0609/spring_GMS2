@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -17,13 +19,14 @@
     <div class="input-group">
       <input type="text" id="findName" name="findName" class="form-control" placeholder="Search for...">
       <span class="input-group-btn">
-        <button id="findbtn" class="btn btn-default" type="button" onclick="controller.findName()">Go!</button>
+        <button id="findbtn" class="btn btn-default" type="button" onclick="app.controller.findName()">Go!</button>
       </span>
     </div>
   </div>
+  <h4>회원수 : ${count}</h4>
 </div>
 </div>
-<div style="height: 40px; width: 300px;"></div>
+<br />
 	<table id="mem-list-tab">
 		<tr>
 			<th>No</th>
@@ -36,20 +39,20 @@
 			<th>가입날짜</th>
 			<th>수정/삭제</th>
 		</tr>
-		<c:forEach var="i" items="${requestScope.list}">
+		<c:forEach var="i" items="${list}">
 		<tr>
-			<td>${i.num}</td>
+			<td><fmt:formatNumber value="${i.num}" pattern="."></fmt:formatNumber></td>
 			<td>${i.id}</td>
-			<td><a onclick="controller.detailStudent('${i.id}')">${i.name}</a></td>
+			<td><a onclick="app.controller.detailStudent('member','${i.id}')">${i.name}</a></td>
 			<td>${i.ssn}</td>
 			<td>${i.email}</td>
 			<td>${i.phone}</td>
 			<td>${i.subj}</td>
 			<td>${i.regdate}</td>
 			<td>
-			<a onclick="controller.updateStudent('${i.id}')">수정</a>
+			<a onclick="app.controller.updateStudent('member','${i.id}')">수정</a>
 			/
-			<a onclick="controller.deleteStudent('${i.id}')">삭제</a>
+			<a onclick="app.controller.deleteStudent('member','${i.id}')">삭제</a>
 			
 			</td>
 		</tr>
@@ -57,38 +60,39 @@
 	</table>
 	<nav aria-label="Page navigation" style="width:350px; margin:0 auto;">
 	  <ul class="pagination">
- 		<c:if test="${requestScope.prevBlock gt 0 }">
-	  	<li><a onclick="controller.list('member','member_list','1')"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></a></li>
+ 		<c:if test="${prevBlock gt 0 }">
+	  	<li><a onclick="app.controller.list('1')"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></a></li>
 	    <li>
-	      <a onclick="controller.list('member','member_list','${requestScope.startPage-1}')" aria-label="Previous">
+	      <a onclick="app.controller.list('${startPage-1}')" aria-label="Previous">
 	        <span aria-hidden="true">&laquo;</span>
 	      </a>
 	    </li>
 	   	</c:if>
-	    <c:forEach varStatus="i" begin="${requestScope.startPage}" end="${requestScope.endPage}" step="1">
+	    <c:forEach varStatus="i" begin="${startPage}" end="${endPage}" step="1">
 	    <c:choose>
-		    <c:when test="${requestScope.pageNumber eq i.index}">
+		    <c:when test="${pageNumber eq i.index}">
 		        <li class="active"><a href="#" >${i.index}</a></li>
 		    </c:when>
 		    <c:otherwise>
-		    	 <li><a href="#" onclick="controller.list('member','member_list','${i.index}')">${i.index}</a></li>
+		    	 <li><a href="#" onclick="app.controller.list('${i.index}')">${i.index}</a></li>
 		    </c:otherwise>
 		</c:choose>
 	    </c:forEach>
-	    <c:if test="${requestScope.nextBlock le requestScope.theNumberOfPage}">
+	    <c:if test="${nextBlock le theNumberOfPage}">
 	    <li>
-	      <a onclick="controller.list('member','member_list','${requestScope.endPage+1}')" aria-label="Next">
+	      <a onclick="app.controller.list('${endPage+1}')" aria-label="Next">
 	        <span aria-hidden="true">&raquo;</span>
 	      </a>
 	    </li>
-	    <li><a onclick="controller.list('member','member_list','${requestScope.theNumberOfPage}')"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a></li>
+	    <li><a onclick="app.controller.list('${theNumberOfPage}')"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a></li>
 	 	</c:if>
 	  </ul>
 	</nav>
-<script>
-	//memberDetail.init();
-</script>
+
 </div>
 </body>
+<script>
+app.member.init();
+</script>
 </html>
 

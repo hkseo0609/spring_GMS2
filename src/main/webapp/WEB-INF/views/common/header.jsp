@@ -3,10 +3,7 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-<title>학생관리</title>	
+<title>GMS</title>	
 </head>
 <body>
 <div id="wrapper">
-<header>
-
-</header>

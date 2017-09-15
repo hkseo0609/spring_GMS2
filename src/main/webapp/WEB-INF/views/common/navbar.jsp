@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="${css}/member.css" />
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -47,7 +46,7 @@
       	</ul>
    	 </li>
    	 </ul>
-    <span class="login-d">${sessionScope.user.name}&nbsp;<a id="logout">로그아웃</a> </span>
+    <span class="login-d">${user.name}&nbsp;<a id="logout">로그아웃</a> </span>
   </div>
 </nav>
 <script>

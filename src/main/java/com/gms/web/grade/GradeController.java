@@ -13,18 +13,12 @@ public class GradeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 	
-	@RequestMapping("/add")
-	public String move() {
 
-		logger.info("grade_add 진입");
-		return "grade:grade/grade_add.tiles";
-	}
-	
-	@RequestMapping("/list")
+	@RequestMapping("/list/{pageNum}")
 	public String list() {
 
 		logger.info("grade_list 진입");
-		return "grade:grade/grade_list.tiles";
+		return "auth:grade/grade_list.tiles";
 	}
 	
 	@RequestMapping("/detail")

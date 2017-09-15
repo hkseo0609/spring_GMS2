@@ -20,14 +20,14 @@
 	               	</div>
 	            </div> 
 				<div class="main-login main-center">
-					<form class="form-horizontal" method="post" action="#">
-						
+					<form class="form-horizontal" id="updateForm">
+						<input type="hidden" name="id" id="id" value="${detail.id}" />
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">NAME</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Steve Jobs"/>
+									<input type="text" class="form-control" name="name" id="name" value="${detail.name}" readonly/>
 								</div>
 							</div>
 						</div>
@@ -37,27 +37,27 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Username"/>
+									<input type="password" class="form-control" name="pwd" id="pwd"  placeholder="Enter your Username"/>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="email" class="cols-sm-2 control-label">Email</label>
+							<label for="email" class="cols-sm-2 control-label">confirm password</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="email"  placeholder="user@example.com"/>
+									<input type="text" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Username"/>
 								</div>
 							</div>
 						</div>
 						
 						<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">phone</label>
+							<label for="password" class="cols-sm-2 control-label">Email</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="phone" id="phone" data-toggle="popover" placeholder="변경할 전화번호를 입력하세요"/>
+									<input type="text" class="form-control" name="email" id="email" data-toggle="popover" placeholder="user@example.com"/>
 								</div>
 								<span id="passwordInfo" class="hide">
 								    <ul>
@@ -72,26 +72,26 @@
 						</div>
 
 						<div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">수강과목</label>
+							<label for="confirm" class="cols-sm-2 control-label">phone</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="title" id="title"  placeholder="변경할 수강과목을 입력하세요"/>
+									<input type="text" class="form-control" name="phone" id="phone"  placeholder="변경할 전화번호를 입력하세요"/>
 								</div>
 								<span id="confirmPass"></span>
 							</div>
 						</div>
 
 						<div class="form-group ">
-							<button type="button" id="update_btn" class="btn btn-primary btn-lg btn-block login-button">UPDATE</button>
+							<input type="submit" id="update_btn" class="btn btn-primary btn-lg btn-block login-button">
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 </div>
-<script>
-memberUpdate.init();
-</script>
 </body>
+<script>
+app.member.init();
+</script>
 </html>

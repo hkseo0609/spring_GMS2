@@ -10,7 +10,6 @@
 	<header>
 	<h1 class="gms-h1">B O A R D</h1><br />
 	</header>
-	<a href="../index.jsp" class="gms-gomain">메인으로 가기</a><br />
 	<hr /><br />
 
 	<br />

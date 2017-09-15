@@ -12,18 +12,12 @@ import com.gms.web.auth.AuthController;
 public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 	
-	@RequestMapping("/write")
-	public String move() {
 
-		logger.info("board_write 진입");
-		return "board:board/board_write.tiles";
-	}
-	
-	@RequestMapping("/list")
+	@RequestMapping("/list/{pageNum}")
 	public String list() {
 
 		logger.info("board_list 진입");
-		return "board:board/board_list.tiles";
+		return "auth:board/board_list.tiles";
 	}
 	
 	@RequestMapping("/detail")

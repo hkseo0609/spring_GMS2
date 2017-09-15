@@ -3,7 +3,8 @@
 	<h1 class="gms-h1">MEMBER ADD</h1>
 	</header>
 	<hr /><br />
-	<div id="image" class="gms-image"><a href="${ctx}/index.jsp"><img src="${ctx}/img/join.jpg" alt=""/></a></div><br />
+	<div id="image" class="gms-image"><a href="${path.ctx}/index.jsp"><img src="${path.ctx}/img/join.jpg" alt=""/></a></div><br />
+	<div style="margin:0 auto; width:200px;"><h4 style="font-size: 20px; color: red;">${message}</h4></div>
 		<form id="join_form" name="join_form" class="form-edit">
 			<fieldset>
 			<legend>회원가입</legend>
@@ -69,7 +70,7 @@ function addAlert(){
 		return false;
 	}
 	var form = document.getElementById('join_form');
-	form.action="${ctx}/member.do";
+	form.action="${path.ctx}/member.do";
 	form.method="post";
 	return true;
 }

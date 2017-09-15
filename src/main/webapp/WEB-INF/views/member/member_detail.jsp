@@ -10,33 +10,33 @@
 <header>
 <h1 class="gms-h1">MEMBER DETAIL</h1>
 </header>
-<input type="hidden" id="detail_id" value="${requestScope.detail.id }" />
+<input type="hidden" id="detail_id" value="${detail.id}" />
       <div class="container">    
           <div class="jumbotron">
             <div class="row">
                 <div class="col-md-3 col-xs-12 col-sm-6 col-lg-3">
                   <div class="thumbnail text-center photo_view_postion_b" >
-                    <img src="${img}/detail.gif" alt="stack photo" class="img">
+                    <img src="${path.img}/detail.gif" alt="stack photo" class="img">
                   </div>
                 </div>
                 <div class="col-md-9 col-xs-12 col-sm-6 col-lg-9">
                     <div class="" style="border-bottom:1px solid black">
-                      <p id="detail_name"><span style="font-size: 30px">${requestScope.detail.name }</span></p>&nbsp;&nbsp;&nbsp;
-                      <button id="update_btn">정보수정</button>
+                      <p id="detail_name"><span style="font-size: 30px">${detail.name}</span>&nbsp;&nbsp;&nbsp;
+                      <button id="update_btn" onclick="app.controller.moveTo('member','member_update')">정보수정</button></p>
                     </div>
                       <hr>
                     <div class="col-md-8">  
                     <ul class=" details">
                       
-                      <li><p id="detail_phone"><span class="glyphicon glyphicon-earphone one" style="width:50px;"></span>${requestScope.detail.phone }</p></li>
-                      <li><p id="detail_email"><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>${requestScope.detail.email }</p></li>
-                      <li><p id="detail_title"> <span class="glyphicon glyphicon-map-marker one" style="width:50px;">${requestScope.detail.subj }</span></p></li>
+                      <li><p id="detail_phone"><span class="glyphicon glyphicon-earphone one" style="width:50px;"></span>${detail.phone }</p></li>
+                      <li><p id="detail_email"><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>${detail.email }</p></li>
+                      <li><p id="detail_title"> <span class="glyphicon glyphicon-map-marker one" style="width:50px;">${detail.subj }</span></p></li>
                       <li><p><span class="glyphicon glyphicon-credit-card one" style="width:50px;"></span>66330007</p></li>
                     </ul>
                     </div>
                     <div class="col-md-4"> 
                   
-                      <div class="col-sm-5 col-xs-6 tital " >Birthday:</div><div class="col-sm-7 col-xs-6 ">${requestScope.detail.ssn }</div>
+                      <div class="col-sm-5 col-xs-6 tital " >Birthday:</div><div class="col-sm-7 col-xs-6 ">${detail.ssn }</div>
                       <div class="clearfix"></div><div class="bot-border"></div>
                       <div class="col-sm-5 col-xs-6 tital " >Gender:</div><div class="col-sm-7 col-xs-6 ">Prasad</div>
                       <div class="clearfix"></div><div class="bot-border"></div>
@@ -92,9 +92,6 @@
           </div>
       </div>
       
- <script>
-memberDetail.init();
- </script>
  </div>
  </body>
  </html>

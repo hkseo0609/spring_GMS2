@@ -19,6 +19,7 @@ public class PathFactory {
 		path.setImg(path.getCtx()+"/resources/img");
 		path.setCss(path.getCtx()+"/resources/css");
 		path.setJs(path.getCtx()+"/resources/js");
+		
 		return path;
 	}
 

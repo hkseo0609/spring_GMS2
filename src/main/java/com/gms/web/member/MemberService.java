@@ -10,12 +10,12 @@ import com.gms.web.member.StudentDTO;
 public interface MemberService {
 	//modify와 add빼고는 다 command로 받기
 	public List<?> list(CommandDTO cmd);
-	public String countMembers(CommandDTO cmd);
-	public String addMember(Map<String, Object> map);
+	public String countMembers();
+	public int addMember(Map<?,?> map);
 	public StudentDTO findByid(CommandDTO cmd);
 	public List<?> findName(CommandDTO cmd);
-	public String modfiy(MemberDTO bean);
-	public String remove(CommandDTO cmd);
-	public Map<String,Object> login(MemberDTO bean);
+	public int modfiy(MemberDTO bean);
+	public int remove(CommandDTO cmd);
+	public Map<String,Object> login(CommandDTO bean);
 
 }

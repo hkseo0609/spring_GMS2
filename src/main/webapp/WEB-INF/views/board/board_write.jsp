@@ -10,7 +10,6 @@
 <header>
 <h1 class="gms-h1">W R I T E</h1>
 </header>
-<a href="../index.jsp" class="gms-gomain">메인으로 가기</a><br />
 <hr /><br />
 	<div id="container" class="board-div-style">
 	<form action="">

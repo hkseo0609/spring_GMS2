@@ -1,18 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!doctype html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title>학생관리</title>
-</head>
-<body>
-<div id="wrapper">
 	<header>
 	<h1 class="gms-h1">MEMBER ADD</h1>
 	</header>
-	<hr /><br />
-	<div id="image" class="gms-image"><a href="${ctx}/index.jsp"><img src="${ctx}/img/join.jpg" alt=""/></a></div><br />
-		<form id="join_form" class="form-edit" onsubmit="memberAdd()">
+	<br />
+		<form id="join_form" class="form-edit">
 			<fieldset>
 			<legend>회원가입</legend>
 			<span class="join-span">ID</span>
@@ -50,13 +41,12 @@
 			<input type="checkbox" name="subject" value="javascript" />javascript<br />
 			<input type="checkbox" name="subject" value="sql" />sql<br />
 			<input type="checkbox" name="subject" value="python" />python<br /><br />
-			<input type="submit" id="yes_btn" value="등록" class="submit-pink" onsubmit="memberAdd()">
+			<input type="submit" id="yes_btn" value="등록" class="submit-pink" >
 			<input type="reset" id="no_btn" value="취소" class="submit-blue">
 			<input type="hidden" name="action" value="join" />
 			<input type="hidden" name="page" value="main" />
 			</fieldset>
 		</form>
-</div>
-</body>
-</html>
-
+<script>
+app.member.init();
+</script>

@@ -4,83 +4,100 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.gms.web.auth.AuthController;
 import com.gms.web.command.CommandDTO;
 import com.gms.web.grade.MajorDTO;
-import com.gms.web.member.MemberDAO;
+import com.gms.web.grade.SubjectDTO;
+import com.gms.web.mapper.GradeMapper;
+import com.gms.web.mapper.MemberMapper;
 import com.gms.web.member.MemberDTO;
 import com.gms.web.member.StudentDTO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-	public static MemberServiceImpl instance = new MemberServiceImpl();
+	private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 	
+	@Autowired MemberMapper mapper;
+	@Autowired MemberDTO member;
+	@Autowired MajorDTO major;
+	@Autowired GradeMapper gmapper;
 	public static MemberServiceImpl getInstance() {
-		return instance;
+		return null;
 	}
-	private MemberServiceImpl() {
-		
-	}
-	@Override
-	public String addMember(Map<String, Object> map) {
-		System.out.println("memberservice 진입");
-		MemberDTO m = (MemberDTO)map.get("member");
-		System.out.println("넘어온 값 :"+m.toString());
+
+	@Override @Transactional
+	public int addMember(Map<?,?> map) {
+		member=(MemberDTO) map.get("member");
+		mapper.insert(member);
 		@SuppressWarnings("unchecked")
-		List<MajorDTO> list = (List<MajorDTO>)map.get("major");
-		System.out.println("넘어온 값 수강과목:"+list);
-		String rs = null;
-		String page = "";
-		page = (Integer.parseInt(rs)==1)? "main" : "join";
-		return page;
+		List<MajorDTO> glist = (List<MajorDTO>) map.get("majorList");
+		gmapper.insertMajor(glist);
+		return 0;
 	}
 
 	@Override
-	public String countMembers(CommandDTO cmd) {
-		return null;
+	public String countMembers() {
+		logger.info("count is {}","entered");
+		String count = mapper.count();
+		logger.info("count is {}", count);
+		return count;
 	}
 	
 	@Override
 	public List<?> list(CommandDTO cmd) {
-		return null;
+		return mapper.selectAll(cmd);
 	}
 	
 	@Override
 	public StudentDTO findByid(CommandDTO cmd) {
-		return null;
+		return mapper.selectByid(cmd);
 	}
 	
 	@Override
 	public List<?> findName(CommandDTO cmd) {
-		return null;
+		return mapper.findName(cmd);
 	}
 	
 	@Override
-	public String modfiy(MemberDTO bean) {
-		String msg = "";
-		String rs = null;
-		msg = (Integer.parseInt(rs)==1)?msg="수정 성공":"수정 실패";
-		return msg;
+	public int modfiy(MemberDTO bean) {
+		return mapper.update(bean);
 			
 	}	
 	@Override
-	public String remove(CommandDTO cmd) {
-		String msg = "";
-		String rs = null;
-		msg = (Integer.parseInt(rs)==1)?msg="삭제 성공":"삭제 실패";
-		return msg;
+	public int remove(CommandDTO cmd) {
+		return mapper.delete(cmd);
 	}
+	
 	@Override
-	public Map<String,Object> login(MemberDTO bean) {
+	public Map<String,Object> login(CommandDTO bean) {
 		Map<String,Object> map = new HashMap<>();
-		CommandDTO cmd = new CommandDTO();
-		cmd.setSearch(bean.getId());
-		MemberDTO temp = null;
-		System.out.println(temp.getId());
-		String page = (temp!=null) ? (bean.getPwd().equals(temp.getPwd())) ? "main" : "login": "join";
+		member = mapper.login(bean);
+		String page="", message="";
+		if(member!=null) {
+			if(member.getPwd().equals(bean.getAction())) {
+				page="auth:common/main.tiles";
+				message= "success";
+			}else {
+				page="auth:common/login.tiles";
+				message= "비밀번호가 다릅니다.";
+			}
+		}else {
+			page="auth:common/join.tiles";
+			message= "아이디가 없습니다.";
+		}
+		map.put("message", message);
 		map.put("page", page);
-		map.put("user", temp);
+		map.put("user", member);
+		
+		/*String page1 = (member!=null) ? (member.getPwd().equals(bean.getAction())) ? 
+				"auth:common/main.tiles" : "auth:common/login.tiles" : "auth:common/join.tiles";
+		*/
 		return map;
 	}
 }
