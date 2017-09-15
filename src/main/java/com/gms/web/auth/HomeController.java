@@ -38,7 +38,7 @@ public class HomeController {
 		//session.setAttribute("path", PathFactory.create());
 		// command 패턴 역할 -> 알아서 페이지 지정해서 넘김
 		model.addAttribute("path", PathFactory.create());
-		return "public:common/home.tiles";
+		return "index";
 	}
 	
 }
