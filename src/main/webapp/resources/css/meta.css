@@ -1,1 +1,6 @@
 @charset "UTF-8";
+.center{margin-top:50px;}
+.model-header{padding-bottom: 5px;}
+.model-footer{padding: 0;}
+.model-footer .btn-group button{height:40px; border-top-left-radius:0; border-top-right-radius:0; border: none;}
+.modal-footer .btn-group:last-child > button{border-right: 0;}

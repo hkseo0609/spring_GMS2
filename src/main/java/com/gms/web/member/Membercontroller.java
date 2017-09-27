@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.gms.web.auth.AuthController;
+import com.gms.web.command.Command;
 import com.gms.web.command.CommandDTO;
 import com.gms.web.grade.MajorDTO;
 import com.gms.web.proxy.PaginationProxy;
@@ -32,6 +33,7 @@ public class Membercontroller {
 	@Autowired MemberService service;
 	@Autowired MemberDTO member;
 	@Autowired CommandDTO cmd;
+	@Autowired Command bcmd;
 	@Autowired PaginationProxy pxy;
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
@@ -142,8 +144,8 @@ public class Membercontroller {
 	public String detail(@PathVariable String detailId, Model model) {
 		logger.info("member_detail 진입");
 		logger.info("##### 디테일 : "+detailId);
-		cmd.setSearch(detailId);
-		model.addAttribute("detail", service.findByid(cmd));
+		bcmd.setSearch(detailId);
+		model.addAttribute("detail", service.findByid(bcmd));
 		return "auth:member/member_detail.tiles";
 	}
 	

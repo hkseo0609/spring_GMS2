@@ -7,5 +7,5 @@ import lombok.Data;
 
 @Data @Lazy @Component
 public class StudentDTO {
-	private String num, id, name, ssn, email, phone, subj, regdate;
+	private String num, id, pwd, name, ssn, email, phone, subj, regdate;
 }

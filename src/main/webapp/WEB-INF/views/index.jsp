@@ -13,7 +13,10 @@
 <body>
 <div id="wrapper">
 	<div id="navbar"></div>
-	<div id="container"></div>
+	<div id="container">
+		<div id="secont"></div>
+		<div id="socont"></div>
+	</div>
 </div>
 
 </body>

@@ -3,7 +3,41 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gms.web.mapper.BoardMapper">
-  <select id="selectById" resultType="com.gms.web.board.BoardDTO">
-    select * from board where article_seq = #{articleSeq}
-  </select>
+	<resultMap type="com.gms.web.command.RespMap" id="respMap">
+		<id property="articleSeq" column="article_seq"/>
+		<result property="count" column="count"/>		
+		<result property="id" column="member_id"/>		
+		<result property="title" column="title"/>		
+		<result property="content" column="content"/>		
+		<result property="regdate" column="regdate"/>		
+		<result property="hitcount" column="hitcount"/>		
+	</resultMap>
+	<insert id="insert" parameterType="com.gms.web.command.Command">
+	</insert>
+	
+	<select id="selectList" 
+		resultMap="respMap" 
+		parameterType="com.gms.web.command.Command">
+			select * from board
+   </select>
+   <select id="selectOne" 
+		resultMap="respMap" 
+		parameterType="com.gms.web.command.Command">
+			select member_id, title, content, regdate from board where article_seq = #{search}
+   </select>
+ 	<select id="count" 
+ 		resultMap="respMap"
+		parameterType="com.gms.web.command.Command">
+			select count(*) as count from board;
+   </select>
+   
+    <update id="update"
+		parameterType="com.gms.web.command.Command">
+		update board set title=#{column}, member_id=#{dir}, content=#{page} where article_seq = #{action}
+   </update>
+   
+   <delete id="delete" 
+   		parameterType="com.gms.web.command.Command">
+   		delete from board where article_seq = #{search}
+   </delete>
 </mapper>

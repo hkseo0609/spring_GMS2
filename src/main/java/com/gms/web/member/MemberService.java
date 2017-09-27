@@ -3,6 +3,7 @@ package com.gms.web.member;
 import java.util.List;
 import java.util.Map;
 
+import com.gms.web.command.Command;
 import com.gms.web.command.CommandDTO;
 import com.gms.web.member.MemberDTO;
 import com.gms.web.member.StudentDTO;
@@ -12,7 +13,7 @@ public interface MemberService {
 	public List<?> list(CommandDTO cmd);
 	public String countMembers();
 	public int addMember(Map<?,?> map);
-	public StudentDTO findByid(CommandDTO cmd);
+	public StudentDTO findByid(Command cmd);
 	public List<?> findName(CommandDTO cmd);
 	public int modfiy(MemberDTO bean);
 	public int remove(CommandDTO cmd);

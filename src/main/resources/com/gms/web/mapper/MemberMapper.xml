@@ -55,8 +55,8 @@
    
    <select id="selectByid" 
 		resultType="com.gms.web.member.StudentDTO" 
-		parameterType="com.gms.web.command.CommandDTO">
-      select id, name, ssn, email from student where id = #{search}
+		parameterType="com.gms.web.command.Command">
+      select id, name, ssn, email, pwd from student where id = #{search}
    </select>
    
    <update id="update"

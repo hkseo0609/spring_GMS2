@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.gms.web.auth.AuthController;
+import com.gms.web.command.Command;
 import com.gms.web.command.CommandDTO;
 import com.gms.web.grade.MajorDTO;
 import com.gms.web.grade.SubjectDTO;
@@ -55,7 +56,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public StudentDTO findByid(CommandDTO cmd) {
+	public StudentDTO findByid(Command cmd) {
 		return mapper.selectByid(cmd);
 	}
 	
